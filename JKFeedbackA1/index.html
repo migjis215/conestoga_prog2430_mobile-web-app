@@ -59,7 +59,17 @@ email:      jkim3240@conestogac.on.ca
 			</div>
 		</header>
 		<section data-role="content">
-		
+			<form id="frmAdd" name="frmAdd">
+				<label for="txtBusinessNameAdd">Business Name:</label>
+				<input type="text" id="txtBusinessNameAdd" name="txtBusinessNameAdd" data-clear-btn="true">
+				<label for="txtReviewerEmailAdd">Reviewer Email:</label>
+				<input type="text" id="txtReviewerEmailAdd" name="txtReviewerEmailAdd" data-clear-btn="true">
+				<label for="txtReviewerCommentsAdd">Reviewer Comments:</label>
+				<textarea id="txtReviewerCommentsAdd" name="txtReviewerCommentsAdd"></textarea>
+				<label for="numRatingAdd">Overall Ratings (1-100):</label>
+				<input type="number" id="numRatingAdd" name="numRatingAdd" min="1" max="100" data-clear-btn="true">
+				<button type="button" id="btnSaveAdd" name="btnSaveAdd" data-inline="true" class="ui-btn-active">Save</button>
+			</form>
 		</section>
 		<footer data-role="footer" data-position="fixed" data-theme="a">
 			<h1>&copy; 2022 Jisung Kim</h1>
