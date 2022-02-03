@@ -1,8 +1,9 @@
 <!--
-Mobile web development
-Template for General purpose html5 page with JQuery Mobile
-Created by: Jisung Kim
-email:      jkim3240@conestogac.on.ca
+index.html
+Assignment 1
+
+Revision History
+		Jisung Kim, 2022.02.03: Created
 -->
 
 <!DOCTYPE html>
@@ -13,7 +14,6 @@ email:      jkim3240@conestogac.on.ca
 	<script src="js/lib/jquery-2.1.4.js"></script>
 	<script src="js/lib/jquery.mobile-1.4.5.js"></script>
 	<link rel="stylesheet" href="css/lib/jquery.mobile-1.4.5.css">
-	<!--	<script src="js/myscript.js"></script>-->
 	<link rel="stylesheet" href="css/mystyle.css">
 </head>
 <body>
@@ -31,21 +31,24 @@ email:      jkim3240@conestogac.on.ca
 		</header>
 		<section data-role="content">
 			<h2>Jisung Kim's Feedback A1 App</h2>
-			<p>Welcome to the Jisung Kim's Feedback A1 app. A prototype designed for mobile programming class. This is the first iteration of the app to keep track of different places you visited along with your reviews.</p>
+			<p>
+				Welcome to the Jisung Kim's Feedback A1 app.
+				A prototype designed for mobile programming class.
+				This is the first iteration of the app to keep track of different places you visited along with your reviews.
+			</p>
 			<div class="center">
 				<img src="img/JK-image.png" alt="JK image" width="70%" />
 			</div>
-			<p>Please feel free to contact me if you have any suggestions!</p>
+			Please feel free to contact me if you have any suggestions!
 			<a href="#" data-role="button" data-theme="a" data-icon="plus">Call: 416.454.6875</a>
 			<a href="#" data-role="button" data-theme="a" data-icon="plus">jkim3240@conestogac.on.ca</a>
-			<p>Website:</p>
+			Website:
 			<a href="https://www.conestogac.on.ca" data-role="button" data-theme="a" data-icon="plus">Conestoga College</a>
 		</section>
 		<footer data-role="footer" data-position="fixed" data-theme="a">
 			<h1>&copy; 2022 Jisung Kim</h1>
 		</footer>
 	</div>
-	
 	<div id="JKAddFeedbackPage" data-role="page">
 		<header data-role="header" data-position="fixed" data-theme="a">
 			<h1>Add a Feedback</h1>
@@ -75,7 +78,6 @@ email:      jkim3240@conestogac.on.ca
 			<h1>&copy; 2022 Jisung Kim</h1>
 		</footer>
 	</div>
-	
 	<div id="JKViewFeedbackPage" data-role="page">
 		<header data-role="header" data-position="fixed" data-theme="a">
 			<h1>List of Reviews</h1>
@@ -92,7 +94,7 @@ email:      jkim3240@conestogac.on.ca
 			<ul id="lstViewFeedback" data-role="listview" class="ui-listview-inset" data-icon="false" data-theme="d">
 				<li>
 					<a href="#JKModifyFeedbackPage">
-						<h3>Business Name: Bellissima Cakes And Pastries</h3>
+						<h3>Business Name: Bellissima Cakes</h3>
 						<p>Reviewer Email: jkim3240@conestogac.on.ca</p>
 						<p>Comments: Unique and delicious cake!</p>
 						<p>Overall Rating: 100%</p>
@@ -112,7 +114,6 @@ email:      jkim3240@conestogac.on.ca
 			<h1>&copy; 2022 Jisung Kim</h1>
 		</footer>
 	</div>
-	
 	<div id="JKModifyFeedbackPage" data-role="page">
 		<header data-role="header" data-position="fixed" data-theme="a">
 			<h1>Modify Feedback</h1>
@@ -128,7 +129,7 @@ email:      jkim3240@conestogac.on.ca
 		<section data-role="content">
 			<form id="frmModify" name="frmModify">
 				<label for="txtBusinessNameModify">Business Name:</label>
-				<input type="text" id="txtBusinessNameModify" name="txtBusinessNameModify" value="Bellissima Cakes And Pastries">
+				<input type="text" id="txtBusinessNameModify" name="txtBusinessNameModify" value="Bellissima Cakes">
 				<label for="txtReviewerEmailModify">Reviewer Email:</label>
 				<input type="text" id="txtReviewerEmailModify" name="txtReviewerEmailModify" value="jkim3240@conestogac.on.ca">
 				<label for="txtReviewerCommentsModify">Reviewer Comments:</label>
@@ -146,7 +147,6 @@ email:      jkim3240@conestogac.on.ca
 			<h1>&copy; 2022 Jisung Kim</h1>
 		</footer>
 	</div>
-	
 	<div id="JKSettingsPage" data-role="page">
 		<header data-role="header" data-position="fixed" data-theme="a">
 			<h1>Settings</h1>
