@@ -160,7 +160,12 @@ email:      jkim3240@conestogac.on.ca
 			</div>
 		</header>
 		<section data-role="content">
-			
+			<form id="frmSettings" name="frmSettings">
+				<label for="txtDefaultReviewerEmail">Default reviewer Email:</label>
+				<input type="text" id="txtDefaultReviewerEmail" name="txtDefaultReviewerEmail">
+				<button type="button" id="btnSaveDefaults" name="btnSaveDefaults" class="ui-btn-active">Save Defaults</button>
+				<button type="button" id="btnClearDatabase" name="btnClearDatabase" data-theme="b">Clear Database</button>
+			</form>
 		</section>
 		<footer data-role="footer" data-position="fixed" data-theme="a">
 			<h1>&copy; 2022 Jisung Kim</h1>
