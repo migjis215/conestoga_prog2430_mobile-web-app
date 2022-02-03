@@ -61,13 +61,13 @@ email:      jkim3240@conestogac.on.ca
 		<section data-role="content">
 			<form id="frmAdd" name="frmAdd">
 				<label for="txtBusinessNameAdd">Business Name:</label>
-				<input type="text" id="txtBusinessNameAdd" name="txtBusinessNameAdd" data-clear-btn="true">
+				<input type="text" id="txtBusinessNameAdd" name="txtBusinessNameAdd">
 				<label for="txtReviewerEmailAdd">Reviewer Email:</label>
-				<input type="text" id="txtReviewerEmailAdd" name="txtReviewerEmailAdd" data-clear-btn="true">
+				<input type="text" id="txtReviewerEmailAdd" name="txtReviewerEmailAdd">
 				<label for="txtReviewerCommentsAdd">Reviewer Comments:</label>
 				<textarea id="txtReviewerCommentsAdd" name="txtReviewerCommentsAdd"></textarea>
 				<label for="numRatingAdd">Overall Ratings (1-100):</label>
-				<input type="number" id="numRatingAdd" name="numRatingAdd" min="1" max="100" data-clear-btn="true">
+				<input type="number" id="numRatingAdd" name="numRatingAdd" min="1" max="100">
 				<button type="button" id="btnSaveAdd" name="btnSaveAdd" data-inline="true" class="ui-btn-active">Save</button>
 			</form>
 		</section>
@@ -93,17 +93,17 @@ email:      jkim3240@conestogac.on.ca
 				<li>
 					<a href="#JKModifyFeedbackPage">
 						<h3>Business Name: Bellissima Cakes And Pastries</h3>
-							<p>Reviewer Email: jkim3240@conestogac.on.ca</p>
-							<p>Comments: Unique and delicious cake!</p>
-							<p>Overall Rating: 100%</p>
+						<p>Reviewer Email: jkim3240@conestogac.on.ca</p>
+						<p>Comments: Unique and delicious cake!</p>
+						<p>Overall Rating: 100%</p>
 					</a>
 				</li>
 				<li>
 					<a href="#JKModifyFeedbackPage">
 						<h3>Business Name: Levetto Waterloo</h3>
-							<p>Reviewer Email: jkim3240@conestogac.on.ca</p>
-							<p>Comments: Great Italian pizza and pasta!</p>
-							<p>Overall Rating: 90%</p>
+						<p>Reviewer Email: jkim3240@conestogac.on.ca</p>
+						<p>Comments: Great Italian pizza and pasta!</p>
+						<p>Overall Rating: 90%</p>
 					</a>
 				</li>
 			</ul>
@@ -126,7 +126,21 @@ email:      jkim3240@conestogac.on.ca
 			</div>
 		</header>
 		<section data-role="content">
-		
+			<form id="frmModify" name="frmModify">
+				<label for="txtBusinessNameModify">Business Name:</label>
+				<input type="text" id="txtBusinessNameModify" name="txtBusinessNameModify" value="Bellissima Cakes And Pastries">
+				<label for="txtReviewerEmailModify">Reviewer Email:</label>
+				<input type="text" id="txtReviewerEmailModify" name="txtReviewerEmailModify" value="jkim3240@conestogac.on.ca">
+				<label for="txtReviewerCommentsModify">Reviewer Comments:</label>
+				<textarea id="txtReviewerCommentsModify" name="txtReviewerCommentsModify">Unique and delicious cake!</textarea>
+				<label for="numRatingModify">Overall Ratings (1-100):</label>
+				<input type="number" id="numRatingModify" name="numRatingModify" min="1" max="100" value="100">
+				<div data-role="controlgroup" data-type="horizontal">
+					<button type="button" id="btnCancelModify" name="btnCancelModify" data-theme="a">Cancel</button>
+					<button type="button" id="btnDeleteModify" name="btnDeleteModify" data-theme="b">Delete</button>
+					<button type="button" id="btnUpdateModify" name="btnUpdateModify" class="ui-btn-active">Update</button>
+				</div>
+			</form>
 		</section>
 		<footer data-role="footer" data-position="fixed" data-theme="a">
 			<h1>&copy; 2022 Jisung Kim</h1>
@@ -146,7 +160,7 @@ email:      jkim3240@conestogac.on.ca
 			</div>
 		</header>
 		<section data-role="content">
-		
+			
 		</section>
 		<footer data-role="footer" data-position="fixed" data-theme="a">
 			<h1>&copy; 2022 Jisung Kim</h1>
