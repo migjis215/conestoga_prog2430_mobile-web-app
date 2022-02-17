@@ -71,12 +71,30 @@ Revision History
 			<form id="frmAdd" name="frmAdd">
 				<label for="txtBusinessNameAdd">Business Name:</label>
 				<input type="text" id="txtBusinessNameAdd" name="txtBusinessNameAdd">
+				<label for="cmbTypeAdd">Type:</label>
+				<select name="cmbTypeAdd" id="cmbTypeAdd">
+					<option value="other">Other</option>
+					<option value="canadian">Canadian</option>
+					<option value="asian">Asian</option>
+				</select>
 				<label for="txtReviewerEmailAdd">Reviewer Email:</label>
 				<input type="text" id="txtReviewerEmailAdd" name="txtReviewerEmailAdd">
 				<label for="txtReviewerCommentsAdd">Reviewer Comments:</label>
 				<textarea id="txtReviewerCommentsAdd" name="txtReviewerCommentsAdd"></textarea>
-				<label for="numRatingAdd">Overall Ratings (1-100):</label>
-				<input type="number" id="numRatingAdd" name="numRatingAdd" min="1" max="100">
+				<label for="txtReviewDateAdd">Review Date:</label>
+				<input type="date" id="txtReviewDateAdd" name="txtReviewDateAdd" data-clear-btn="true">
+				<input type="checkbox" id="chkRatingsAdd" name="chkRatingsAdd">
+				<label for="chkRatingsAdd">Do you want to add your ratings?</label>
+				<div class="ratingBoxes" hidden>
+					<label for="numFoodQualityAdd">Food Quality (0-5):</label>
+					<input type="number" id="numFoodQualityAdd" name="numFoodQualityAdd" min="0" max="5">
+					<label for="numServiceAdd">Service (0-5):</label>
+					<input type="number" id="numServiceAdd" name="numServiceAdd" min="0" max="5">
+					<label for="numValueAdd">Value (0-5):</label>
+					<input type="number" id="numValueAdd" name="numValueAdd" min="0" max="5">
+					<label for="txtOverallRatingAdd">Overall Rating (Calculated):</label>
+					<input type="text" id="txtOverallRatingAdd" name="txtOverallRatingAdd" readonly>
+				</div>
 				<button type="button" id="btnSaveAdd" name="btnSaveAdd" data-inline="true" class="ui-btn-active">Save</button>
 			</form>
 		</section>
