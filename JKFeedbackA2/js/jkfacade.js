@@ -36,3 +36,20 @@ function modifyFeedback(){
         console.log("Modify Form is invalid");
     }
 }
+
+function showDefaultReviewerEmail(){
+    var defaultEmail = localStorage.getItem("DefaultEmail");
+
+    if (defaultEmail != null && defaultEmail !== "") {
+        $("#txtDefaultReviewerEmail").val(defaultEmail);
+    } else {
+        $("#txtDefaultReviewerEmail").val("jkim3240@conestogac.on.ca");
+    }
+}
+
+function saveDefaultReviewerEmail(){
+    if (doValidate_frmSettings()) {
+        localStorage.setItem("DefaultEmail", $("#txtDefaultReviewerEmail").val());
+        alert("Default reviewer email saved.");
+    }
+}

@@ -95,13 +95,33 @@ function doValidate_frmModify(){
     return form.valid();
 }
 
+function doValidate_frmSettings(){
+    var form = $("#frmSettings");
+    form.validate({
+        rules:{
+            txtDefaultReviewerEmail:{
+                required: true,
+                emailcheck: true
+            }
+        },
+        messages:{
+            txtDefaultReviewerEmail:{
+                required: "Default email is required",
+                emailcheck: "Please enter a valid email form"
+            }
+        }
+    });
+
+    return form.valid();
+}
+
 jQuery.validator.addMethod(
     "emailcheck",
     function(value, element) {
         var regexp = /^.+\@.+\..+$/;
         return this.optional(element) || regexp.test(value);
     },
-    "Must be a Conestoga email"
+    "Please enter a valid email form"
 );
 
 jQuery.validator.addMethod(

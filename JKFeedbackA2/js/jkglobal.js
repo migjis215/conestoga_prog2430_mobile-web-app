@@ -59,6 +59,14 @@ function btnUpdateModify_click() {
     modifyFeedback();
 }
 
+function JKSettingsPage_show() {
+    showDefaultReviewerEmail();
+}
+
+function btnSaveDefaults_click() {
+    saveDefaultReviewerEmail();
+}
+
 function init() {
     $("#chkRatingsAdd").on("change", chkRatingsAdd_change);
     $("#numFoodQualityAdd").on("change", numFoodQualityAdd_change);
@@ -72,9 +80,11 @@ function init() {
 
     $("#btnSaveAdd").on("click", btnSaveAdd_click);
     $("#btnUpdateModify").on("click", btnUpdateModify_click);
+
+    $("#JKSettingsPage").on("pageshow", JKSettingsPage_show);
+    $("#btnSaveDefaults").on("click", btnSaveDefaults_click);
 }
 
 $(document).ready(function () {
     init();
-    initDB();
 });
