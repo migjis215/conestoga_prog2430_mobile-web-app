@@ -20,3 +20,19 @@ function showCalculatedRatingModify(){
 
     $("#txtOverallRatingModify").val(getOverallRating(quality, service, value) + "%");
 }
+
+function addFeedback(){
+    if (doValidate_frmAdd()){
+        console.log("Add Form is valid");
+    } else {
+        console.log("Add Form is invalid");
+    }
+}
+
+function modifyFeedback(){
+    if (doValidate_frmModify()){
+        console.log("Modify Form is valid");
+    } else {
+        console.log("Modify Form is invalid");
+    }
+}

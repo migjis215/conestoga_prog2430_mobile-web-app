@@ -51,6 +51,14 @@ function numValueModify_change() {
     showCalculatedRatingModify();
 }
 
+function btnSaveAdd_click() {
+    addFeedback();
+}
+
+function btnUpdateModify_click() {
+    modifyFeedback();
+}
+
 function init() {
     $("#chkRatingsAdd").on("change", chkRatingsAdd_change);
     $("#numFoodQualityAdd").on("change", numFoodQualityAdd_change);
@@ -61,6 +69,9 @@ function init() {
     $("#numFoodQualityModify").on("change", numFoodQualityModify_change);
     $("#numServiceModify").on("change", numServiceModify_change);
     $("#numValueModify").on("change", numValueModify_change);
+
+    $("#btnSaveAdd").on("click", btnSaveAdd_click);
+    $("#btnUpdateModify").on("click", btnUpdateModify_click);
 }
 
 $(document).ready(function () {
