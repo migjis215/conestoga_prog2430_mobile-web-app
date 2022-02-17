@@ -85,7 +85,7 @@ Revision History
 				<input type="date" id="txtReviewDateAdd" name="txtReviewDateAdd" data-clear-btn="true">
 				<input type="checkbox" id="chkRatingsAdd" name="chkRatingsAdd">
 				<label for="chkRatingsAdd">Do you want to add your ratings?</label>
-				<div class="ratingBoxes" hidden>
+				<div id="ratingBoxesAdd" hidden>
 					<label for="numFoodQualityAdd">Food Quality (0-5):</label>
 					<input type="number" id="numFoodQualityAdd" name="numFoodQualityAdd" min="0" max="5">
 					<label for="numServiceAdd">Service (0-5):</label>
@@ -153,13 +153,31 @@ Revision History
 		<section data-role="content">
 			<form id="frmModify" name="frmModify">
 				<label for="txtBusinessNameModify">Business Name:</label>
-				<input type="text" id="txtBusinessNameModify" name="txtBusinessNameModify" value="Bellissima Cakes">
+				<input type="text" id="txtBusinessNameModify" name="txtBusinessNameModify" >
+				<label for="cmbTypeModify">Type:</label>
+				<select name="cmbTypeModify" id="cmbTypeModify">
+					<option value="other">Other</option>
+					<option value="canadian">Canadian</option>
+					<option value="asian">Asian</option>
+				</select>
 				<label for="txtReviewerEmailModify">Reviewer Email:</label>
-				<input type="text" id="txtReviewerEmailModify" name="txtReviewerEmailModify" value="jkim3240@conestogac.on.ca">
+				<input type="text" id="txtReviewerEmailModify" name="txtReviewerEmailModify">
 				<label for="txtReviewerCommentsModify">Reviewer Comments:</label>
-				<textarea id="txtReviewerCommentsModify" name="txtReviewerCommentsModify">Unique and delicious cake!</textarea>
-				<label for="numRatingModify">Overall Ratings (1-100):</label>
-				<input type="number" id="numRatingModify" name="numRatingModify" min="1" max="100" value="100">
+				<textarea id="txtReviewerCommentsModify" name="txtReviewerCommentsModify"></textarea>
+				<label for="txtReviewDateModify">Review Date:</label>
+				<input type="date" id="txtReviewDateModify" name="txtReviewDateModify" data-clear-btn="true">
+				<input type="checkbox" id="chkRatingsModify" name="chkRatingsModify">
+				<label for="chkRatingsModify">Do you want to add your ratings?</label>
+				<div id="ratingBoxesModify" hidden>
+					<label for="numFoodQualityModify">Food Quality (0-5):</label>
+					<input type="number" id="numFoodQualityModify" name="numFoodQualityModify" min="0" max="5">
+					<label for="numServiceModify">Service (0-5):</label>
+					<input type="number" id="numServiceModify" name="numServiceModify" min="0" max="5">
+					<label for="numValueModify">Value (0-5):</label>
+					<input type="number" id="numValueModify" name="numValueModify" min="0" max="5">
+					<label for="txtOverallRatingModify">Overall Rating (Calculated):</label>
+					<input type="text" id="txtOverallRatingModify" name="txtOverallRatingModify" readonly>
+				</div>
 				<div data-role="controlgroup" data-type="horizontal">
 					<button type="button" id="btnCancelModify" name="btnCancelModify" data-theme="a">Cancel</button>
 					<button type="button" id="btnDeleteModify" name="btnDeleteModify" data-theme="b">Delete</button>
