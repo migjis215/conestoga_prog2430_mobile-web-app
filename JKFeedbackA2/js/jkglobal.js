@@ -11,6 +11,7 @@ function chkRatingsAdd_change() {
         $("#numFoodQualityAdd").val("0");
         $("#numServiceAdd").val("0");
         $("#numValueAdd").val("0");
+        $("#txtOverallRatingAdd").val("");
     } else {
         $("#ratingBoxesAdd").hide();
     }
@@ -34,6 +35,7 @@ function chkRatingsModify_change() {
         $("#numFoodQualityModify").val("0");
         $("#numServiceModify").val("0");
         $("#numValueModify").val("0");
+        $("#txtOverallRatingModify").val("");
     } else {
         $("#ratingBoxesModify").hide();
     }
