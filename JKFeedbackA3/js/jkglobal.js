@@ -6,14 +6,7 @@
  */
 
 function chkRatingsAdd_change() {
-    if ($("#chkRatingsAdd").prop("checked")){
-        $("#ratingBoxesAdd").show();
-        $("#numFoodQualityAdd").val("0");
-        $("#numServiceAdd").val("0");
-        $("#numValueAdd").val("0");
-    } else {
-        $("#ratingBoxesAdd").hide();
-    }
+    hideAndShowRatingsAdd();
 }
 
 function numFoodQualityAdd_change() {
@@ -29,14 +22,7 @@ function numValueAdd_change() {
 }
 
 function chkRatingsModify_change() {
-    if ($("#chkRatingsModify").prop("checked")){
-        $("#ratingBoxesModify").show();
-        $("#numFoodQualityModify").val("0");
-        $("#numServiceModify").val("0");
-        $("#numValueModify").val("0");
-    } else {
-        $("#ratingBoxesModify").hide();
-    }
+    hideAndShowRatingsModify();
 }
 
 function numFoodQualityModify_change() {
@@ -67,7 +53,13 @@ function btnSaveDefaults_click() {
     saveDefaultReviewerEmail();
 }
 
+function JKAddFeedbackPage_show() {
+    updateReviewerEmailAdd();
+}
+
 function init() {
+    setReviewerEmail();
+
     $("#chkRatingsAdd").on("change", chkRatingsAdd_change);
     $("#numFoodQualityAdd").on("change", numFoodQualityAdd_change);
     $("#numServiceAdd").on("change", numServiceAdd_change);
@@ -83,8 +75,25 @@ function init() {
 
     $("#JKSettingsPage").on("pageshow", JKSettingsPage_show);
     $("#btnSaveDefaults").on("click", btnSaveDefaults_click);
+
+    $("#JKAddFeedbackPage").on("pageshow", JKAddFeedbackPage_show);
+}
+
+function initDb() {
+    try {
+        DB.createDatabase();
+        if (db) {
+            console.info("Creating Tables...");
+            DB.createTable();
+        } else {
+            console.error("Error: Cannot create tables: Database does not exists");
+        }
+    } catch (e) {
+        console.error("Error (Fatal): Error in initDB. Cannot proceed");
+    }
 }
 
 $(document).ready(function () {
     init();
+    initDb();
 });
