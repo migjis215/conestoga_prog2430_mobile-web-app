@@ -1,0 +1,217 @@
+<!--
+index.html
+Assignment 3
+
+Revision History
+		Jisung Kim, 2022.02.17: Created
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>JKFeedback</title>
+	<script src="js/lib/jquery-2.1.4.js"></script>
+	<script src="js/lib/jquery.mobile-1.4.5.js"></script>
+	<link rel="stylesheet" href="css/lib/jquery.mobile-1.4.5.css">
+	<script src="js/lib/jquery.validate.js"></script>
+	<script src="js/jkdatabase.js"></script>
+	<script src="js/jkDAL.js"></script>
+	<script src="js/jkfacade.js"></script>
+	<script src="js/jkutil.js"></script>
+	<script src="js/jkglobal.js"></script>
+	<link rel="stylesheet" href="css/jkmystyle.css">
+</head>
+<body>
+	<div id="JKHomePage" data-role="page">
+		<header data-role="header" data-position="fixed" data-theme="a">
+			<h1>JK Feedback A3</h1>
+			<div data-role="navbar" data-iconpos="top">
+				<ul>
+					<li><a href="#JKHomePage" data-icon="home" class="ui-btn-active ui-state-persist">Home</a></li>
+					<li><a href="#JKAddFeedbackPage" data-icon="plus">Add</a></li>
+					<li><a href="#JKViewFeedbackPage" data-icon="grid">Reviews</a></li>
+					<li><a href="#JKSettingsPage" data-icon="gear">Settings</a></li>
+				</ul>
+			</div>
+		</header>
+		<section data-role="content">
+			<h2>Jisung Kim's Feedback A3 App</h2>
+			<p>
+				Welcome to the Jisung Kim's Feedback A3 app.
+				A prototype designed for mobile programming class.
+				This is the first iteration of the app to keep track of different places you visited along with your reviews.
+			</p>
+			<div class="center">
+				<img src="img/JK-image.png" alt="JK image" width="70%" />
+			</div>
+			Please feel free to contact me if you have any suggestions!
+			<a href="#" data-role="button" data-theme="a" data-icon="plus">Call: 416.454.6875</a>
+			<a href="#" data-role="button" data-theme="a" data-icon="plus">jkim3240@conestogac.on.ca</a>
+			Website:
+			<a href="https://www.conestogac.on.ca" data-role="button" data-theme="a" data-icon="plus">Conestoga College</a>
+		</section>
+		<footer data-role="footer" data-position="fixed" data-theme="a">
+			<h1>&copy; 2022 Jisung Kim</h1>
+		</footer>
+	</div>
+	<div id="JKAddFeedbackPage" data-role="page">
+		<header data-role="header" data-position="fixed" data-theme="a">
+			<h1>Add a Feedback</h1>
+			<div data-role="navbar" data-iconpos="top">
+				<ul>
+					<li><a href="#JKHomePage" data-icon="home">Home</a></li>
+					<li><a href="#JKAddFeedbackPage" data-icon="plus" class="ui-btn-active ui-state-persist">Add</a></li>
+					<li><a href="#JKViewFeedbackPage" data-icon="grid">Reviews</a></li>
+					<li><a href="#JKSettingsPage" data-icon="gear">Settings</a></li>
+				</ul>
+			</div>
+		</header>
+		<section data-role="content">
+			<form id="frmAdd" name="frmAdd">
+				<label for="txtBusinessNameAdd">Business Name:</label>
+				<input type="text" id="txtBusinessNameAdd" name="txtBusinessNameAdd">
+				<label for="cmbTypeAdd">Type:</label>
+				<select name="cmbTypeAdd" id="cmbTypeAdd">
+					<option value="other">Other</option>
+					<option value="canadian">Canadian</option>
+					<option value="asian">Asian</option>
+				</select>
+				<label for="txtReviewerEmailAdd">Reviewer Email:</label>
+				<input type="text" id="txtReviewerEmailAdd" name="txtReviewerEmailAdd">
+				<label for="txtReviewerCommentsAdd">Reviewer Comments:</label>
+				<textarea id="txtReviewerCommentsAdd" name="txtReviewerCommentsAdd"></textarea>
+				<label for="txtReviewDateAdd">Review Date:</label>
+				<input type="date" id="txtReviewDateAdd" name="txtReviewDateAdd" data-clear-btn="true">
+				<input type="checkbox" id="chkRatingsAdd" name="chkRatingsAdd">
+				<label for="chkRatingsAdd">Do you want to add your ratings?</label>
+				<div id="ratingBoxesAdd" hidden>
+					<label for="numFoodQualityAdd">Food Quality (0-5):</label>
+					<input type="number" id="numFoodQualityAdd" name="numFoodQualityAdd">
+					<label for="numServiceAdd">Service (0-5):</label>
+					<input type="number" id="numServiceAdd" name="numServiceAdd">
+					<label for="numValueAdd">Value (0-5):</label>
+					<input type="number" id="numValueAdd" name="numValueAdd">
+					<label for="txtOverallRatingAdd">Overall Rating (Calculated):</label>
+					<input type="text" id="txtOverallRatingAdd" name="txtOverallRatingAdd" readonly>
+				</div>
+				<button type="button" id="btnSaveAdd" name="btnSaveAdd" data-inline="true" class="ui-btn-active">Save</button>
+			</form>
+		</section>
+		<footer data-role="footer" data-position="fixed" data-theme="a">
+			<h1>&copy; 2022 Jisung Kim</h1>
+		</footer>
+	</div>
+	<div id="JKViewFeedbackPage" data-role="page">
+		<header data-role="header" data-position="fixed" data-theme="a">
+			<h1>List of Reviews</h1>
+			<div data-role="navbar" data-iconpos="top">
+				<ul>
+					<li><a href="#JKHomePage" data-icon="home">Home</a></li>
+					<li><a href="#JKAddFeedbackPage" data-icon="plus">Add</a></li>
+					<li><a href="#JKViewFeedbackPage" data-icon="grid" class="ui-btn-active ui-state-persist">Reviews</a></li>
+					<li><a href="#JKSettingsPage" data-icon="gear">Settings</a></li>
+				</ul>
+			</div>
+		</header>
+		<section data-role="content">
+			<ul id="lstViewFeedback" data-role="listview" class="ui-listview-inset" data-icon="false" data-theme="d">
+				<li>
+					<a href="#JKModifyFeedbackPage">
+						<h3>Business Name: Bellissima Cakes</h3>
+						<p>Reviewer Email: jkim3240@conestogac.on.ca</p>
+						<p>Comments: Unique and delicious cake!</p>
+						<p>Overall Rating: 100%</p>
+					</a>
+				</li>
+				<li>
+					<a href="#JKModifyFeedbackPage">
+						<h3>Business Name: Levetto Waterloo</h3>
+						<p>Reviewer Email: jkim3240@conestogac.on.ca</p>
+						<p>Comments: Great Italian pizza and pasta!</p>
+						<p>Overall Rating: 90%</p>
+					</a>
+				</li>
+			</ul>
+		</section>
+		<footer data-role="footer" data-position="fixed" data-theme="a">
+			<h1>&copy; 2022 Jisung Kim</h1>
+		</footer>
+	</div>
+	<div id="JKModifyFeedbackPage" data-role="page">
+		<header data-role="header" data-position="fixed" data-theme="a">
+			<h1>Modify Feedback</h1>
+			<div data-role="navbar" data-iconpos="top">
+				<ul>
+					<li><a href="#JKHomePage" data-icon="home">Home</a></li>
+					<li><a href="#JKAddFeedbackPage" data-icon="plus">Add</a></li>
+					<li><a href="#JKViewFeedbackPage" data-icon="grid" class="ui-btn-active ui-state-persist">Reviews</a></li>
+					<li><a href="#JKSettingsPage" data-icon="gear">Settings</a></li>
+				</ul>
+			</div>
+		</header>
+		<section data-role="content">
+			<form id="frmModify" name="frmModify">
+				<label for="txtBusinessNameModify">Business Name:</label>
+				<input type="text" id="txtBusinessNameModify" name="txtBusinessNameModify" >
+				<label for="cmbTypeModify">Type:</label>
+				<select name="cmbTypeModify" id="cmbTypeModify">
+					<option value="other">Other</option>
+					<option value="canadian">Canadian</option>
+					<option value="asian">Asian</option>
+				</select>
+				<label for="txtReviewerEmailModify">Reviewer Email:</label>
+				<input type="text" id="txtReviewerEmailModify" name="txtReviewerEmailModify">
+				<label for="txtReviewerCommentsModify">Reviewer Comments:</label>
+				<textarea id="txtReviewerCommentsModify" name="txtReviewerCommentsModify"></textarea>
+				<label for="txtReviewDateModify">Review Date:</label>
+				<input type="date" id="txtReviewDateModify" name="txtReviewDateModify" data-clear-btn="true">
+				<input type="checkbox" id="chkRatingsModify" name="chkRatingsModify">
+				<label for="chkRatingsModify">Do you want to add your ratings?</label>
+				<div id="ratingBoxesModify" hidden>
+					<label for="numFoodQualityModify">Food Quality (0-5):</label>
+					<input type="number" id="numFoodQualityModify" name="numFoodQualityModify">
+					<label for="numServiceModify">Service (0-5):</label>
+					<input type="number" id="numServiceModify" name="numServiceModify">
+					<label for="numValueModify">Value (0-5):</label>
+					<input type="number" id="numValueModify" name="numValueModify">
+					<label for="txtOverallRatingModify">Overall Rating (Calculated):</label>
+					<input type="text" id="txtOverallRatingModify" name="txtOverallRatingModify" readonly>
+				</div>
+				<div data-role="controlgroup" data-type="horizontal">
+					<button type="button" id="btnCancelModify" name="btnCancelModify" data-theme="a">Cancel</button>
+					<button type="button" id="btnDeleteModify" name="btnDeleteModify" data-theme="b">Delete</button>
+					<button type="button" id="btnUpdateModify" name="btnUpdateModify" class="ui-btn-active">Update</button>
+				</div>
+			</form>
+		</section>
+		<footer data-role="footer" data-position="fixed" data-theme="a">
+			<h1>&copy; 2022 Jisung Kim</h1>
+		</footer>
+	</div>
+	<div id="JKSettingsPage" data-role="page">
+		<header data-role="header" data-position="fixed" data-theme="a">
+			<h1>Settings</h1>
+			<div data-role="navbar" data-iconpos="top">
+				<ul>
+					<li><a href="#JKHomePage" data-icon="home">Home</a></li>
+					<li><a href="#JKAddFeedbackPage" data-icon="plus">Add</a></li>
+					<li><a href="#JKViewFeedbackPage" data-icon="grid">Reviews</a></li>
+					<li><a href="#JKSettingsPage" data-icon="gear" class="ui-btn-active ui-state-persist">Settings</a></li>
+				</ul>
+			</div>
+		</header>
+		<section data-role="content">
+			<form id="frmSettings" name="frmSettings">
+				<label for="txtDefaultReviewerEmail">Default reviewer Email:</label>
+				<input type="text" id="txtDefaultReviewerEmail" name="txtDefaultReviewerEmail">
+				<button type="button" id="btnSaveDefaults" name="btnSaveDefaults" class="ui-btn-active">Save Defaults</button>
+				<button type="button" id="btnClearDatabase" name="btnClearDatabase" data-theme="b">Clear Database</button>
+			</form>
+		</section>
+		<footer data-role="footer" data-position="fixed" data-theme="a">
+			<h1>&copy; 2022 Jisung Kim</h1>
+		</footer>
+	</div>
+</body>
+</html>
