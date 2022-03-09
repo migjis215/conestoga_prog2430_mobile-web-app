@@ -3,7 +3,7 @@ index.html
 Assignment 3
 
 Revision History
-		Jisung Kim, 2022.02.17: Created
+		Jisung Kim, 2022.03.09: Created
 -->
 
 <!DOCTYPE html>
@@ -72,11 +72,7 @@ Revision History
 				<label for="txtBusinessNameAdd">Business Name:</label>
 				<input type="text" id="txtBusinessNameAdd" name="txtBusinessNameAdd">
 				<label for="cmbTypeAdd">Type:</label>
-				<select name="cmbTypeAdd" id="cmbTypeAdd">
-					<option value="other">Other</option>
-					<option value="canadian">Canadian</option>
-					<option value="asian">Asian</option>
-				</select>
+				<select name="cmbTypeAdd" id="cmbTypeAdd" data-native-menu="false"></select>
 				<label for="txtReviewerEmailAdd">Reviewer Email:</label>
 				<input type="text" id="txtReviewerEmailAdd" name="txtReviewerEmailAdd">
 				<label for="txtReviewerCommentsAdd">Reviewer Comments:</label>
@@ -115,24 +111,7 @@ Revision History
 			</div>
 		</header>
 		<section data-role="content">
-			<ul id="lstViewFeedback" data-role="listview" class="ui-listview-inset" data-icon="false" data-theme="d">
-				<li>
-					<a href="#JKModifyFeedbackPage">
-						<h3>Business Name: Bellissima Cakes</h3>
-						<p>Reviewer Email: jkim3240@conestogac.on.ca</p>
-						<p>Comments: Unique and delicious cake!</p>
-						<p>Overall Rating: 100%</p>
-					</a>
-				</li>
-				<li>
-					<a href="#JKModifyFeedbackPage">
-						<h3>Business Name: Levetto Waterloo</h3>
-						<p>Reviewer Email: jkim3240@conestogac.on.ca</p>
-						<p>Comments: Great Italian pizza and pasta!</p>
-						<p>Overall Rating: 90%</p>
-					</a>
-				</li>
-			</ul>
+			<ul id="listViewFeedback" data-role="listview" class="ui-listview-inset" data-theme="d"></ul>
 		</section>
 		<footer data-role="footer" data-position="fixed" data-theme="a">
 			<h1>&copy; 2022 Jisung Kim</h1>
@@ -152,14 +131,14 @@ Revision History
 		</header>
 		<section data-role="content">
 			<form id="frmModify" name="frmModify">
+				<div hidden>
+					<label for="txtId">ID</label>
+					<input type="text" id="txtId" name="txtId" class="required" data-theme="a" data-clear-btn="true" placeholder="Enter ID">
+				</div>
 				<label for="txtBusinessNameModify">Business Name:</label>
 				<input type="text" id="txtBusinessNameModify" name="txtBusinessNameModify" >
 				<label for="cmbTypeModify">Type:</label>
-				<select name="cmbTypeModify" id="cmbTypeModify">
-					<option value="other">Other</option>
-					<option value="canadian">Canadian</option>
-					<option value="asian">Asian</option>
-				</select>
+				<select name="cmbTypeModify" id="cmbTypeModify" data-native-menu="false"></select>
 				<label for="txtReviewerEmailModify">Reviewer Email:</label>
 				<input type="text" id="txtReviewerEmailModify" name="txtReviewerEmailModify">
 				<label for="txtReviewerCommentsModify">Reviewer Comments:</label>
@@ -182,6 +161,16 @@ Revision History
 					<button type="button" id="btnCancelModify" name="btnCancelModify" data-theme="a">Cancel</button>
 					<button type="button" id="btnDeleteModify" name="btnDeleteModify" data-theme="b">Delete</button>
 					<button type="button" id="btnUpdateModify" name="btnUpdateModify" class="ui-btn-active">Update</button>
+					
+					<div hidden>
+						<button type="button" id="btnShowOne" name="btnShowOne">
+							Show One
+						</button>
+						<button type="button" id="btnShowAll" name="btnShowAll">
+							Show All
+						</button>
+					</div>
+
 				</div>
 			</form>
 		</section>

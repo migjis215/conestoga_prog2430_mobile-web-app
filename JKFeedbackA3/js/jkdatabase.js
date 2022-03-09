@@ -2,7 +2,7 @@
  *  File Name: jkdatabase.js
  *
  *  Revision History:
- *          Jisung Kim, 2022-02-17 : Created
+ *          Jisung Kim, 2022-03-09 : Created
  */
 
 var db;
@@ -15,11 +15,11 @@ var DB = {
     createDatabase : function() {
         var shortName = "JKFeedbackDB";
         var version = "1.0";
-        var displayName = "DB for JKFeedbackDB app";
+        var displayName = "DB for JK Feedback app";
         var dbSize = 2 * 1024 * 1024;
 
         function dbCreateSuccess() {
-          console.info("Success: Database create successfully");
+          console.info("Database created successfully");
         }
 
         db = openDatabase(shortName, version, displayName, dbSize, dbCreateSuccess);
@@ -29,25 +29,36 @@ var DB = {
             var sql = "";
             var options = [];
 
-            function successDropTable() {
-                console.info("Success: Drop table successful");
+            function successDropTypeTable() {
+                console.info("Success: type table dropped");
             }
 
-            function successCreateTable() {
-                console.info("Success: Create table successful");
+            function successDropReviewTable() {
+                console.info("Success: review table dropped");
+            }
+
+            function successCreateTypeTable() {
+                console.info("Success: type table created successfully");
             }
 
             function successInsertRow() {
-                console.info("Success: Insert a row successful");
+                console.info("Success: row inserted successfully to type table");
+            }
+
+            function successCreateReviewTable() {
+                console.info("Success: review table created successfully");
             }
 
             sql = "DROP TABLE IF EXISTS type;";
-            tx.executeSql(sql, options, successDropTable, errorHandler);
+            tx.executeSql(sql, options, successDropTypeTable, errorHandler);
+
+            sql = "DROP TABLE IF EXISTS review;";
+            tx.executeSql(sql, options, successDropReviewTable, errorHandler);
 
             sql = "CREATE TABLE IF NOT EXISTS type("
                 + "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
                 + "name VARCHAR(20) NOT NULL);";
-            tx.executeSql(sql, options, successCreateTable, errorHandler);
+            tx.executeSql(sql, options, successCreateTypeTable, errorHandler);
 
             sql = "INSERT INTO type(name) VALUES(?);";
             options = ['Others'];
@@ -78,29 +89,37 @@ var DB = {
                 + "rating3 INTEGER,"
                 + "FOREIGN KEY(typeId) REFERENCES type(id));";
             options = [];
-            tx.executeSql(sql, options, successCreateTable, errorHandler);
+            tx.executeSql(sql, options, successCreateReviewTable, errorHandler);
         }
 
         function successTransaction() {
-            console.info("Success: Create tables transaction successful");
+            console.info("Success transaction: all tables created successfully");
         }
 
         db.transaction(txFunction, errorHandler, successTransaction);
     },
     dropTables : function() {
         function txFunction(tx) {
-            var sql = "DROP TABLE IF EXISTS type;";
+            var sql;
             var options = [];
 
-            function successCallback() {
-                console.info("Success: Drop table: type successful");
+            function successDropTypeTable() {
+                console.info("Success: type table dropped");
             }
 
-            tx.executeSql(sql, options, successCallback, errorHandler);
+            function successDropReviewTable() {
+                console.info("Success: review table dropped");
+            }
+
+            sql = "DROP TABLE IF EXISTS type;";
+            tx.executeSql(sql, options, successDropTypeTable, errorHandler);
+
+            sql = "DROP TABLE IF EXISTS review;";
+            tx.executeSql(sql, options, successDropReviewTable, errorHandler);
         }
 
         function successTransaction() {
-            console.info("Success: Drop tables transaction successful");
+            console.info("Success transaction: all tables dropped successfully");
         }
 
         db.transaction(txFunction, errorHandler, successTransaction);

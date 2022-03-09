@@ -2,7 +2,7 @@
  *  File Name: jkutil.js
  *
  *  Revision History:
- *          Jisung Kim, 2022-02-17 : Created
+ *          Jisung Kim, 2022-03-09 : Created
  */
 
 function getOverallRating(quality, service, value){
@@ -15,7 +15,7 @@ function doValidate_frmAdd(){
         rules:{
             txtBusinessNameAdd:{
                 required: true,
-                rangelength: [2, 20]
+                rangelength: [2, 30]
             },
             txtReviewerEmailAdd:{
                 required: true,
@@ -37,7 +37,7 @@ function doValidate_frmAdd(){
         messages:{
             txtBusinessNameAdd:{
                 required: "You must enter the business name",
-                rangelength: "Name must be between 2 and 20 characters"
+                rangelength: "Name must be between 2 and 30 characters"
             },
             txtReviewerEmailAdd:{
                 required: "Email is required",
@@ -58,7 +58,7 @@ function doValidate_frmModify(){
         rules:{
             txtBusinessNameModify:{
                 required: true,
-                rangelength: [2, 20]
+                rangelength: [2, 30]
             },
             txtReviewerEmailModify:{
                 required: true,
@@ -80,7 +80,7 @@ function doValidate_frmModify(){
         messages:{
             txtBusinessNameModify:{
                 required: "You must enter the business name",
-                rangelength: "Name must be between 2 and 20 characters"
+                rangelength: "Name must be between 2 and 30 characters"
             },
             txtReviewerEmailModify:{
                 required: "Email is required",
